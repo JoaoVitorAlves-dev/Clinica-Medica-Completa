@@ -1,7 +1,9 @@
 package com.joao.vitor.alves.clinica.medica.clinica.config;
 
+import org.hibernate.boot.jaxb.mapping.internal.GenerationTimingMarshalling;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.authentication.configuration.AuthenticationConfiguration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -32,7 +34,11 @@ public class SecurityConfig {
         http.csrf(csrf -> csrf.disable()
                 .sessionManagement(sm -> sm.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .authorizeHttpRequests(auth -> auth
-                        .requestMatchers("").permitAll()
+
+                        .requestMatchers(HttpMethod.POST,"/usuarios/refresh", "/usuarios/registrar", "/usuarios/logar").permitAll()
+                        .requestMatchers(HttpMethod.DELETE, "/usuarios/deletar/{id}").authenticated()
+                        .requestMatchers(HttpMethod.GET, "/usuarios/listar").authenticated()
+
                         .anyRequest().authenticated())
                 .addFilterBefore(tokenFilter, UsernamePasswordAuthenticationFilter.class)
         );

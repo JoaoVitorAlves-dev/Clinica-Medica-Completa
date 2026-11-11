@@ -73,6 +73,9 @@ public class EnderecoService {
         Endereco endereco = enderecoRepository.findById(id)
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND));
 
+        if (!endereco.getUsuario().getAtivo()) {
+            throw new ResponseStatusException(HttpStatus.CONFLICT);
+        }
         if (!endereco.getUsuario().getEmail().equals(auth.getName())) {
             throw new ResponseStatusException(HttpStatus.FORBIDDEN);
         }

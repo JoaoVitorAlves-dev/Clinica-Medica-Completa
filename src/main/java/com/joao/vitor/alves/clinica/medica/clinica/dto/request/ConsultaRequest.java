@@ -6,9 +6,10 @@ import jakarta.validation.constraints.PositiveOrZero;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
+import java.util.UUID;
 
 public record ConsultaRequest(
-        @NotNull Long pacienteId,
+        @NotNull UUID pacienteId,
         @NotNull Long medicoId,
         @NotNull LocalDateTime dataHora,
         @NotNull StatusConsulta status,

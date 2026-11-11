@@ -17,7 +17,7 @@ public class Convenio {
     private String cnpj;
 
     @Column(name = "isAtivo", nullable = false)
-    private boolean ativo = true;
+    private Boolean ativo = true;
 
     public Convenio() {
     }
@@ -46,11 +46,11 @@ public class Convenio {
         this.cnpj = cnpj;
     }
 
-    public boolean isAtivo() {
+    public Boolean getAtivo() {
         return ativo;
     }
 
-    public void setAtivo(boolean ativo) {
+    public void setAtivo(Boolean ativo) {
         this.ativo = ativo;
     }
 }

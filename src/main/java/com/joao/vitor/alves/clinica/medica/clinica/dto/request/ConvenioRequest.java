@@ -5,7 +5,6 @@ import jakarta.validation.constraints.NotNull;
 
 public record ConvenioRequest(
         @NotBlank String nome,
-        @NotBlank String cnpj,
-        @NotNull Boolean ativo
+        @NotBlank String cnpj
 ) {
 }

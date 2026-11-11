@@ -6,7 +6,7 @@ import jakarta.validation.constraints.NotNull;
 import java.util.UUID;
 
 public record EnderecoRequest(
-        @NotNull UUID usuarioId,
+        UUID usuarioId,
         @NotBlank String rua,
         @NotBlank String cidade,
         @NotBlank String estado,

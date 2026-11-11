@@ -89,7 +89,7 @@ public class UsuarioService {
         if (!usuario.getEmail().equals(auth.getName())) {
             throw new ResponseStatusException(HttpStatus.FORBIDDEN);
         }
-        if (usuarioRepository.existsByCpf(req.cpf()) || usuarioRepository.existsByCpf(req.cpf()) || usuario.getAtivo() == false) {
+        if (usuarioRepository.existsByCpf(req.cpf()) || usuarioRepository.existsByCpf(req.cpf()) || !usuario.getAtivo()) {
             throw new ResponseStatusException(HttpStatus.CONFLICT);
         }
 
@@ -111,7 +111,7 @@ public class UsuarioService {
         if (!usuario.getEmail().equals(auth.getName())) {
             throw new ResponseStatusException(HttpStatus.FORBIDDEN);
         }
-        if (usuario.getAtivo() == false) {
+        if (!usuario.getAtivo()) {
             throw new ResponseStatusException(HttpStatus.CONFLICT);
         }
 

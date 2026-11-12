@@ -8,6 +8,8 @@ import com.joao.vitor.alves.clinica.medica.clinica.dto.response.RefreshTokenResp
 import com.joao.vitor.alves.clinica.medica.clinica.dto.response.UsuarioResponse;
 import com.joao.vitor.alves.clinica.medica.clinica.repository.UsuarioRepository;
 import jakarta.transaction.Transactional;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -33,6 +35,10 @@ public class UsuarioService {
         this.tokenService = tokenService;
         this.authenticationManager = authenticationManager;
         this.passwordEncoder = passwordEncoder;
+    }
+
+    public Page<UsuarioResponse> findAll(Pageable pageable) {
+        return usuarioRepository.findAllBy(pageable);
     }
 
     public UsuarioResponse listar(Authentication auth) {

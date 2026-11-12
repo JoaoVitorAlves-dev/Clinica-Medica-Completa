@@ -1,6 +1,9 @@
 package com.joao.vitor.alves.clinica.medica.clinica.repository;
 
 import com.joao.vitor.alves.clinica.medica.clinica.domain.Usuario;
+import com.joao.vitor.alves.clinica.medica.clinica.dto.response.UsuarioResponse;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
@@ -15,5 +18,7 @@ public interface UsuarioRepository extends JpaRepository<Usuario, UUID> {
     Boolean existsByEmail(String email);
 
     Boolean existsByCpf(String cpf);
+
+    Page<UsuarioResponse> findAllBy(Pageable pageable);
 
 }

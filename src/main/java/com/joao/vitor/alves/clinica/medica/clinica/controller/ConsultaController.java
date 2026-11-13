@@ -1,11 +1,8 @@
 package com.joao.vitor.alves.clinica.medica.clinica.controller;
 
 import com.joao.vitor.alves.clinica.medica.clinica.dto.request.ConsultaRequest;
-import com.joao.vitor.alves.clinica.medica.clinica.dto.request.ConvenioRequest;
 import com.joao.vitor.alves.clinica.medica.clinica.dto.response.ConsultaResponse;
-import com.joao.vitor.alves.clinica.medica.clinica.dto.response.ConvenioResponse;
 import com.joao.vitor.alves.clinica.medica.clinica.service.ConsultaService;
-import com.joao.vitor.alves.clinica.medica.clinica.service.ConvenioService;
 import jakarta.validation.Valid;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;

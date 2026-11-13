@@ -83,6 +83,11 @@ public class SecurityConfig {
                         .requestMatchers(HttpMethod.PATCH, "/pagamentos/atualizar/{id}").authenticated()
                         .requestMatchers(HttpMethod.DELETE, "/pagamentos/deletar/{id}").authenticated()
 
+                        .requestMatchers(HttpMethod.GET, "/exames/listar").hasRole("ADMIN")
+                        .requestMatchers(HttpMethod.POST, "/exames/adicionar").hasRole("ADMIN")
+                        .requestMatchers(HttpMethod.PATCH, "/exames/atualizar/{id}").hasRole("ADMIN")
+                        .requestMatchers(HttpMethod.DELETE, "/exames/deletar/{id}").hasRole("ADMIN")
+
                         .anyRequest().authenticated())
                 .addFilterBefore(tokenFilter, UsernamePasswordAuthenticationFilter.class)
         );

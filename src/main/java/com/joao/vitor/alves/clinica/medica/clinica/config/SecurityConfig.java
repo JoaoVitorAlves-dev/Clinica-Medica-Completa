@@ -73,6 +73,16 @@ public class SecurityConfig {
                         .requestMatchers(HttpMethod.PATCH, "/pacientes/atualizarcadastro/{id}").authenticated()
                         .requestMatchers(HttpMethod.PATCH, "/pacientes/deletarcadastro/{id}").authenticated()
 
+                        .requestMatchers(HttpMethod.GET, "/consulta/listar").hasRole("ADMIN")
+                        .requestMatchers(HttpMethod.POST, "/consulta/adicionar").hasRole("ADMIN")
+                        .requestMatchers(HttpMethod.PATCH, "/consulta/atualizar/{id}").hasRole("ADMIN")
+                        .requestMatchers(HttpMethod.DELETE, "/consulta/deletar/{id}").hasRole("ADMIN")
+
+                        .requestMatchers(HttpMethod.GET, "/pagamentos/listar").authenticated()
+                        .requestMatchers(HttpMethod.POST, "/pagamentos/adicionar").authenticated()
+                        .requestMatchers(HttpMethod.PATCH, "/pagamentos/atualizar/{id}").authenticated()
+                        .requestMatchers(HttpMethod.DELETE, "/pagamentos/deletar/{id}").authenticated()
+
                         .anyRequest().authenticated())
                 .addFilterBefore(tokenFilter, UsernamePasswordAuthenticationFilter.class)
         );

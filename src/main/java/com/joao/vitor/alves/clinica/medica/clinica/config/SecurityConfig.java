@@ -48,6 +48,21 @@ public class SecurityConfig {
                         .requestMatchers(HttpMethod.PATCH, "/medicos/atualizar/{id}").authenticated()
                         .requestMatchers(HttpMethod.DELETE, "/medicos/deletar/{id}").hasRole("ADMIN")
 
+                        .requestMatchers(HttpMethod.GET, "/especialidades/listar").hasRole("ADMIN")
+                        .requestMatchers(HttpMethod.POST, "/especialidades/criar").hasRole("ADMIN")
+                        .requestMatchers(HttpMethod.PATCH, "/especialidades/atualizar/{id}").hasRole("ADMIN")
+                        .requestMatchers(HttpMethod.DELETE, "/especialidades/desativar/{id}").hasRole("ADMIN")
+
+                        .requestMatchers(HttpMethod.GET, "/especialidades/listar").hasRole("ADMIN")
+                        .requestMatchers(HttpMethod.POST, "/especialidades/criar").hasRole("ADMIN")
+                        .requestMatchers(HttpMethod.PATCH, "/especialidades/atualizar/{id}").hasRole("ADMIN")
+                        .requestMatchers(HttpMethod.DELETE, "/especialidades/desativar/{id}").hasRole("ADMIN")
+
+                        .requestMatchers(HttpMethod.GET, "/convenios/listar").hasRole("ADMIN")
+                        .requestMatchers(HttpMethod.POST, "/convenios/criar").hasRole("ADMIN")
+                        .requestMatchers(HttpMethod.PATCH, "/convenios/atualizar/{id}").hasRole("ADMIN")
+                        .requestMatchers(HttpMethod.DELETE, "/convenios/desativar/{id}").hasRole("ADMIN")
+
                         .anyRequest().authenticated())
                 .addFilterBefore(tokenFilter, UsernamePasswordAuthenticationFilter.class)
         );

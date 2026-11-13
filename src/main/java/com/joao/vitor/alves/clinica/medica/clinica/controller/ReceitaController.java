@@ -1,10 +1,7 @@
 package com.joao.vitor.alves.clinica.medica.clinica.controller;
 
-import com.joao.vitor.alves.clinica.medica.clinica.dto.request.ProntuarioRequest;
 import com.joao.vitor.alves.clinica.medica.clinica.dto.request.ReceitaRequest;
-import com.joao.vitor.alves.clinica.medica.clinica.dto.response.ProntuarioResponse;
 import com.joao.vitor.alves.clinica.medica.clinica.dto.response.ReceitaResponse;
-import com.joao.vitor.alves.clinica.medica.clinica.service.ProntuarioService;
 import com.joao.vitor.alves.clinica.medica.clinica.service.ReceitaService;
 import jakarta.validation.Valid;
 import org.springframework.data.domain.Page;

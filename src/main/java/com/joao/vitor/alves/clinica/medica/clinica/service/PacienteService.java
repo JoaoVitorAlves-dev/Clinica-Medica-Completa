@@ -31,8 +31,6 @@ public class PacienteService {
         this.convenioRepository = convenioRepository;
     }
 
-    // ADMIN FUNÇÕES
-
     public Page<PacienteResponse> listar(Pageable pageable) {
         return pacienteRepository.findAll(pageable).map(PacienteMapper::toDTO);
     }
@@ -78,8 +76,6 @@ public class PacienteService {
 
         pacienteRepository.delete(paciente);
     }
-
-    // USUARIO FUNÇÕES
 
     public PacienteResponse visualizarCadastro(Authentication auth) {
         Paciente paciente = pacienteRepository.findByUsuarioEmail(auth.getName())

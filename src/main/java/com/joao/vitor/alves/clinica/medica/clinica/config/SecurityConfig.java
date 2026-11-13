@@ -88,6 +88,16 @@ public class SecurityConfig {
                         .requestMatchers(HttpMethod.PATCH, "/exames/atualizar/{id}").hasRole("ADMIN")
                         .requestMatchers(HttpMethod.DELETE, "/exames/deletar/{id}").hasRole("ADMIN")
 
+                        .requestMatchers(HttpMethod.GET, "/prontuarios/listar").hasRole("ADMIN")
+                        .requestMatchers(HttpMethod.POST, "/prontuarios/criar").hasRole("ADMIN")
+                        .requestMatchers(HttpMethod.PATCH, "/prontuarios/atualizar/{id}").hasRole("ADMIN")
+                        .requestMatchers(HttpMethod.DELETE, "/prontuarios/deletar/{id}").hasRole("ADMIN")
+
+                        .requestMatchers(HttpMethod.GET, "/receitas/listar").hasRole("ADMIN")
+                        .requestMatchers(HttpMethod.DELETE, "/receitas/criar").hasRole("ADMIN")
+                        .requestMatchers(HttpMethod.DELETE, "/receitas/atualizar/{id}").hasRole("ADMIN")
+                        .requestMatchers(HttpMethod.DELETE, "/receitas/deletar/{id}").hasRole("ADMIN")
+
                         .anyRequest().authenticated())
                 .addFilterBefore(tokenFilter, UsernamePasswordAuthenticationFilter.class)
         );

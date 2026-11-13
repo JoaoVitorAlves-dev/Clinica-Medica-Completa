@@ -11,7 +11,6 @@ public class EspecialidadeMapper {
     public Especialidade toEntity(EspecialidadeRequest req) {
         Especialidade especialidade = new Especialidade();
         especialidade.setNome(req.nome());
-        especialidade.setAtiva(req.ativa());
         return especialidade;
     }
 

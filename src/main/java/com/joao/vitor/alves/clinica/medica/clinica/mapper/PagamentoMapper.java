@@ -13,7 +13,6 @@ public class PagamentoMapper {
         Pagamento pagamento = new Pagamento();
         pagamento.setConsulta(consulta);
         pagamento.setMetodo(req.metodo());
-        pagamento.setStatus(req.status());
         return pagamento;
     }
 

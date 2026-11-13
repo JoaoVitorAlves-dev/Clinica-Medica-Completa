@@ -12,7 +12,6 @@ public class ConvenioMapper {
         Convenio convenio = new Convenio();
         convenio.setNome(req.nome());
         convenio.setCnpj(req.cnpj());
-        convenio.setAtivo(req.ativo());
         return convenio;
     }
 

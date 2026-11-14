@@ -94,8 +94,8 @@ public class SecurityConfig {
                         .requestMatchers(HttpMethod.DELETE, "/prontuarios/deletar/{id}").hasRole("ADMIN")
 
                         .requestMatchers(HttpMethod.GET, "/receitas/listar").hasRole("ADMIN")
-                        .requestMatchers(HttpMethod.DELETE, "/receitas/criar").hasRole("ADMIN")
-                        .requestMatchers(HttpMethod.DELETE, "/receitas/atualizar/{id}").hasRole("ADMIN")
+                        .requestMatchers(HttpMethod.POST, "/receitas/criar").hasRole("ADMIN")
+                        .requestMatchers(HttpMethod.PATCH, "/receitas/atualizar/{id}").hasRole("ADMIN")
                         .requestMatchers(HttpMethod.DELETE, "/receitas/deletar/{id}").hasRole("ADMIN")
 
                         .anyRequest().authenticated())

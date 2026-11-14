@@ -112,20 +112,24 @@ public class PacienteService {
 
         Usuario usuario = usuarioRepository.findById(request.usuarioId())
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND));
+
         Convenio convenio = convenioRepository.findById(request.convenioId())
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND));
 
         if (!paciente.getUsuario().getEmail().equals(auth.getName()) || !usuario.getEmail().equals(auth.getName())) {
             throw new ResponseStatusException(HttpStatus.FORBIDDEN);
         }
-        if (!paciente.getUsuario().getAtivo() || !convenio.getAtivo() || !paciente.getConvenio().getAtivo() || !usuario.getAtivo()) {
+
+        if (!paciente.getUsuario().getAtivo()
+                || !convenio.getAtivo()
+                || !paciente.getConvenio().getAtivo()
+                || !usuario.getAtivo()) {
             throw new ResponseStatusException(HttpStatus.CONFLICT);
         }
 
         paciente.setTelefone(request.telefone());
         paciente.setDataNascimento(request.dataNascimento());
         paciente.setConvenio(convenio);
-        paciente.setUsuario(usuario);
 
         return PacienteMapper.toDTO(pacienteRepository.save(paciente));
     }

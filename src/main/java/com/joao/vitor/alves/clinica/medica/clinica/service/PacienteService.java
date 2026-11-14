@@ -94,7 +94,7 @@ public class PacienteService {
         Convenio convenio = convenioRepository.findById(pacienteRequest.convenioId())
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND));
 
-        if (usuario.getEmail().equals(auth.getName())) {
+        if (!usuario.getEmail().equals(auth.getName())) {
             throw new ResponseStatusException(HttpStatus.FORBIDDEN);
         }
 

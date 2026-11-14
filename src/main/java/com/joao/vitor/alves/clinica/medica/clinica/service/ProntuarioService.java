@@ -37,7 +37,7 @@ public class ProntuarioService {
             throw new ResponseStatusException(HttpStatus.GONE);
         }
         if (!consulta.getPaciente().getConvenio().getAtivo() || !consulta.getPaciente().getUsuario().getAtivo()
-                || !consulta.getMedico().getUsuario().getAtivo() || consulta.getMedico().getEspecialidade().getAtiva()) {
+                || !consulta.getMedico().getUsuario().getAtivo() || !consulta.getMedico().getEspecialidade().getAtiva()) {
             throw new ResponseStatusException(HttpStatus.CONFLICT);
         }
 

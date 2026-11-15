@@ -18,6 +18,7 @@ target/
 *.iws
 *.iml
 *.ipr
+.dockerignore
 
 ### NetBeans ###
 /nbproject/private/
@@ -29,6 +30,9 @@ build/
 !**/src/main/**/build/
 !**/src/test/**/build/
 .env
+.git/
+.idea/
+*.md
 
 ### VS Code ###
 .vscode/

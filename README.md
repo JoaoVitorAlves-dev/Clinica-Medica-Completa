@@ -290,3 +290,6 @@ src/main/resources/
 
 src/test/java/    # Testes automatizados
 ```
+
+## Autor
+**João Vitor de Jesus Alves** · [GitHub](https://github.com/JoaoVitorAlves-dev).
